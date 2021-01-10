@@ -4,10 +4,13 @@ import { NavLink, Redirect } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 
 const NavigationBar = () => {
-  const { isAuthenticated, setIsAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, setIsAuthenticated, setUser } = useContext(
+    AuthContext
+  );
   const handleLogout = () => {
     localStorage.removeItem("access_token");
     setIsAuthenticated(false);
+    setUser(null);
     <Redirect to="/" />;
   };
   return (
