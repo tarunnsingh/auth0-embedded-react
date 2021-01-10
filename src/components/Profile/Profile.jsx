@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   Button,
   Container,
@@ -14,14 +14,19 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
-
+  const [fetchIing, setisFetching] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setisFetching(false);
+    }, 2000);
+  });
   return (
     <Container fluid>
       <Row>
         <Col></Col>
         <Col xs={6}>
           <h3 className="text-center mt-3 display-4">Profile</h3>
-          {user ? (
+          {!fetchIing ? (
             <Card>
               <Card.Body>
                 <Card.Title>Name: {user.nickname}</Card.Title>
