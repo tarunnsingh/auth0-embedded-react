@@ -1,8 +1,10 @@
 import React, { createContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import AuthService from "../services/AuthService";
-// import { Spinner } from "react-bootstrap";
 
 export const AuthContext = createContext();
+// Adding this functionality to do the TESTS. (We wrap the useContext here as a hook.)
+export const useMockContext = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -14,7 +16,6 @@ export const AuthProvider = ({ children }) => {
       setIsAuthenticated(respBool);
       AuthService.getUserProfile()
         .then((res) => {
-          // console.log("HERE");
           setUser(res);
         })
         .catch((error) => {

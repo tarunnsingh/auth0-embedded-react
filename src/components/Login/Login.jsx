@@ -11,13 +11,17 @@ import {
 import "bootstrap/dist/css/bootstrap.css";
 import { useHistory } from "react-router-dom";
 import AuthService from "../../services/AuthService";
-import { AuthContext } from "../../context/AuthContext";
+// import { AuthContext } from "../../context/AuthContext";
+import { useMockContext } from "../../context/AuthContext";
+
 const Login = (props) => {
   const [user, setNewUser] = useState({ username: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [displayMsg, setDisplayMsg] = useState(null);
   const [alertClass, setAlertClass] = useState("primary");
-  const { setIsAuthenticated, setUser } = useContext(AuthContext);
+  // const { setIsAuthenticated, setUser } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser } = useMockContext();
+
   const history = useHistory();
 
   // useEffect(() => {
@@ -71,8 +75,10 @@ const Login = (props) => {
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
+                data-testid="emailInput"
                 type="email"
                 name="username"
+                id="emailInput"
                 value={user.username}
                 placeholder="Enter your Email..."
                 onChange={handleInputChange}

@@ -1,19 +1,21 @@
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import qs from "querystring";
+import dotenv from "dotenv";
+dotenv.config();
 
 export default {
   register: async (email, password) => {
     const data = qs.stringify({
-      client_id: "rRh4hdm6xqVhbI8iTjUb459cwMK6oBD5",
+      client_id: process.env.REACT_APP_CLIENT_ID,
       email: email,
       password: password,
-      connection: "Username-Password-Authentication",
+      connection: process.env.REACT_APP_CONNECTION,
     });
 
     const config = {
       method: "post",
-      url: "https://tarunsingh.us.auth0.com/dbconnections/signup",
+      url: process.env.REACT_APP_DOMAIN + "/dbconnections/signup",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -57,8 +59,8 @@ export default {
   login: (username, password) => {
     const data = qs.stringify({
       grant_type: "password",
-      client_id: "rRh4hdm6xqVhbI8iTjUb459cwMK6oBD5",
-      audience: "https://tarunsingh.us.auth0.com/api/v2/",
+      client_id: process.env.REACT_APP_CLIENT_ID,
+      audience: process.env.REACT_APP_DOMAIN + "/api/v2/",
       username: username,
       password: password,
       scope: "openid",
@@ -66,7 +68,7 @@ export default {
 
     const config = {
       method: "post",
-      url: "https://tarunsingh.us.auth0.com/oauth/token",
+      url: process.env.REACT_APP_DOMAIN + "/oauth/token",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
@@ -111,7 +113,7 @@ export default {
     if (token) {
       var config = {
         method: "get",
-        url: "https://tarunsingh.us.auth0.com/userinfo",
+        url: process.env.REACT_APP_DOMAIN + "/userinfo",
         headers: {
           Authorization: `Bearer ${token}`,
         },
