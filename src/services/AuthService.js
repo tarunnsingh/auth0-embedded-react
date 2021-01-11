@@ -127,6 +127,7 @@ export default {
             updated_at,
             email_verified,
           } = response.data;
+          console.log(response.data);
           return {
             email,
             nickname,

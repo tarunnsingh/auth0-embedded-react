@@ -12,9 +12,14 @@ export const AuthProvider = ({ children }) => {
     const respBool = AuthService.isAuthenticated();
     if (respBool) {
       setIsAuthenticated(respBool);
-      AuthService.getUserProfile().then((res) => {
-        setUser(res);
-      });
+      AuthService.getUserProfile()
+        .then((res) => {
+          // console.log("HERE");
+          setUser(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   }, []);
 

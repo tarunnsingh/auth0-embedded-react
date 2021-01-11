@@ -13,12 +13,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import { AuthContext } from "../../context/AuthContext";
 
 const Profile = () => {
-  const { user } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [fetchIing, setisFetching] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setisFetching(false);
-    }, 2000);
+    }, 1000);
   });
   return (
     <Container fluid>

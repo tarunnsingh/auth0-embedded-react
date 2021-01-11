@@ -1,19 +1,20 @@
 .container {
-  background: #2d2d2d;
-  height: 95vh;
+  background: #ffffff;
+  height: 80vh;
   overflow: hidden;
+  margin-left: auto;
 }
 
 .Iam {
-  padding: 2em 5em;
+  padding: 5%;
   font: normal 40px/50px Montserrat, sans-serif;
   color: #999;
 }
 .Iam p {
   height: 50px;
   float: left;
-  margin-right: 0.3em;
-  margin-top: 4%;
+  margin-right: 2%;
+  margin-top: 3.5%;
 }
 .Iam b {
   float: left;
@@ -23,7 +24,7 @@
   top: 40px;
 }
 .Iam .innerIam {
-  display: inline-block;
+  display: inline;
   color: #e74c3c;
   position: relative;
   white-space: nowrap;

@@ -17,12 +17,12 @@ const Login = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [displayMsg, setDisplayMsg] = useState(null);
   const [alertClass, setAlertClass] = useState("primary");
-  const { setIsAuthenticated } = useContext(AuthContext);
+  const { setIsAuthenticated, setUser } = useContext(AuthContext);
   const history = useHistory();
 
-  useEffect(() => {
-    resetForm();
-  }, []);
+  // useEffect(() => {
+  //   resetForm();
+  // }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -39,14 +39,15 @@ const Login = (props) => {
       setIsLoading(false);
       resetForm();
     } else {
+      setIsAuthenticated(true);
       setAlertClass("success");
+      setUser(await AuthService.getUserProfile());
       setDisplayMsg(message.message);
       setTimeout(() => {
         resetForm();
         setIsLoading(false);
         setDisplayMsg(null);
-        setIsAuthenticated(true);
-        history.push("/user");
+        // history.push("/user");
       }, 3000);
     }
   };
