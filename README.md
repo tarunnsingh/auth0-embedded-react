@@ -11,7 +11,7 @@ A React App implementing the Embbeded Login Flow (Username + Password).
 1. Authentication and Authorization on Auth0 Server.
 2. Completely **bypasses the Universal Login Flow**.
 3. User Profile Page - Displays username, name, picture and email.
-4. A dummy home page.
+4. A dummy home page with some placeholder animation.
 5. The basic Login and Logout functionality with route protection.
 
 ## :footprints: Steps for Running the App Locally.
