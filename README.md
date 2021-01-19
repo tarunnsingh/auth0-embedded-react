@@ -1,6 +1,6 @@
-<img src="https://cdn.mokuji.me/2018/1/react-auth0-thumb.png" />
+<img src="banner.png" />
 
-# Auth0 Assignment - REACTJS App
+# Auth0 Embedded Login - REACTJS App
 
 A React App implementing the Embbeded Login Flow (Username + Password).
 
